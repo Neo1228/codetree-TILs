@@ -1,7 +1,8 @@
 public class Main {
     public static void main(String[] args) {
         int a = 3;
-        int a = 6;
-        System.out.print()
+        int b = 6;
+        a = b;
+        System.out.print(a);
     }
 }
