@@ -6,6 +6,6 @@ public class Main {
         Double a = sc.nextDouble();
         Double b = sc.nextDouble();
         Double c = sc.nextDouble();
-        System.out.printf("%.3f\n %.3f\n %.3f", a, b, c);
+        System.out.printf("%.3f\n%.3f\n%.3f", a, b, c);
     }
 }
