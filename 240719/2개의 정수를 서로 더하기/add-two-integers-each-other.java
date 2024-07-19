@@ -5,8 +5,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
         int b = sc.nextInt();
-        b += a;
         a += b;
+        b += a;
         System.out.println(a + " " + b);
     }
 }
