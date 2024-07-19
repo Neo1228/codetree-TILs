@@ -4,9 +4,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         sc.useDelimiter(".");
-        int yyyy = sc.nextInt();
-        int mm = sc.nextInt();
-        int dd = sc.nextInt();
+        String yyyy = sc.next();
+        String mm = sc.next();
+        String dd = sc.next();
         System.out.println(mm + "-" + dd + "-" + yyyy);
     }
 }
