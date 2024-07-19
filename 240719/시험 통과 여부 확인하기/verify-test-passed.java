@@ -8,7 +8,7 @@ public class Main {
             System.out.println("pass");
         }
         else {
-            System.out.print("O more score");
+            System.out.printf("%d more score", n);
         }
     }
 }
