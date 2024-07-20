@@ -6,12 +6,9 @@ public class Main {
         int a = sc.nextInt();
         int b = sc.nextInt();
         int c = sc.nextInt();
-        if(a >= b && a <= c){
-            System.out.println(a);
-        }else if(a <= b && b <= c){
-            System.out.println(b);
-        }else{
-            System.out.println(c);
-        }
+        int [] numbers = {a,b,c};
+        Arrays.sort(numbers);
+        int median = numbers[1];
+        System.out.println(median);
     }
 }
