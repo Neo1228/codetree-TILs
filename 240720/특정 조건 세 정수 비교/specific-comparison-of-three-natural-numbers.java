@@ -7,9 +7,9 @@ public class Main {
         int b = sc.nextInt();
         int c = sc.nextInt();
         int min = 0;
-        if (a < b && a < c) {
+        if (a <= b && a <= c) {
             min = a;
-        } else if (b < c && b < a) {
+        } else if (b <= c && b <= a) {
             min = b;
         } else {
             min = c;
