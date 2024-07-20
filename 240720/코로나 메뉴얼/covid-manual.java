@@ -22,14 +22,14 @@ public class Main {
         String corona_2 = sc.next();
         int temp_2 = sc.nextInt();
         String b = "a";
-        if (corona.equals("Y")){
-            if (temp >= 37) {
+        if (corona_2.equals("Y")){
+            if (temp_2 >= 37) {
                 b = "A";
             }else{
                 b = "C";
             }
         }else {
-            if (temp >= 37) {
+            if (temp_2 >= 37) {
                 b = "B";
             } else {
                 b = "D";
@@ -38,14 +38,14 @@ public class Main {
         String corona_3 = sc.next();
         int temp_3 = sc.nextInt();
         String c = "a";
-        if (corona.equals("Y")){
-            if (temp >= 37) {
+        if (corona_3.equals("Y")){
+            if (temp_3 >= 37) {
                 c = "A";
             }else{
                 c = "C";
             }
         }else {
-            if (temp >= 37) {
+            if (temp_3 >= 37) {
                 c = "B";
             } else {
                 c = "D";
@@ -53,7 +53,10 @@ public class Main {
         }
         if ((a == "A" && b == "A") || (b == "A" && c == "A") || (a == "A" && c == "A")) {
             System.out.println("E");
-        } else {
+        }else if(a == "A" && b == "A" && c == "A") {
+            System.out.println("E");
+        }
+        else {
             System.out.println("N");
         }
 
