@@ -9,7 +9,7 @@ public class Main {
             if(sex == 0){
                 System.out.print("MAN");
             }else{
-                System.out.print("WOMAN")
+                System.out.print("WOMAN");
             }
         }
         if(age < 19){
