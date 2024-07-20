@@ -16,7 +16,7 @@ public class Main {
             if(sex == 0){
                 System.out.print("BOY");
             }else(sex == 1){
-                System.out.print("GIRL")
+                System.out.print("GIRL");
             }
         }
     }
