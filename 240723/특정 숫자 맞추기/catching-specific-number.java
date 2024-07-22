@@ -9,9 +9,9 @@ public class Main {
                 System.out.println("Good");
                 break;
             } else if (n >= 25) {
-                System.out.println("Higher");
-            } else {
                 System.out.println("Lower");
+            } else {
+                System.out.println("Higher");
             }
         }
     }
