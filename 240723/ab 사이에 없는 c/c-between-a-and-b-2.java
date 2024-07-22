@@ -10,10 +10,7 @@ public class Main {
         for (int i = a; i <= b; i++) {
             if (i % c != 0) {
                 satisfied = false;
-                break;
-            } else {
-                satisfied = true;
-            } 
+            }
         }
         if (satisfied == false) {
             System.out.println("YES");
