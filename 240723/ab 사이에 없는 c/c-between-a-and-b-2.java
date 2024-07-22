@@ -8,7 +8,7 @@ public class Main {
         int c = sc.nextInt();
         boolean satisfied = false;
         for (int i = a; i <= b; i++) {
-            if (i % c == 0) {
+            if (i % c != 0) {
                 satisfied = false;
                 break;
             } else {
