@@ -9,6 +9,9 @@ public class Main {
             for(int j = 1; j <= i; j++) {
                 System.out.print((char)cnt);
                 cnt++;
+                if(cnt > 'Z'){
+                    cnt = 65;
+                }
             }
             System.out.println();
         }
