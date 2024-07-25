@@ -6,7 +6,7 @@ public class Main {
         int n = sc.nextInt();
         int a = sc.nextInt();
         int b = sc.nextInt();
-        int sum = 0;
+        int sum = 1;
         for(int i = n; i > 0; i--){
             for(int j = a; j <= b; j++){
                 sum *= j;
