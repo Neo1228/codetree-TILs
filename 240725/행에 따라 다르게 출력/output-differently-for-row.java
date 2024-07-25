@@ -6,22 +6,31 @@ public class Main {
         int n = scanner.nextInt();
         scanner.close();
 
+        int[][] map = new int[n][n];
         int num = 1;
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= n; j++) {
-                System.out.print(num + " ");
-                if (i % 2 == 1) {
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                map[i][j] = num;
+                if (i % 2 == 0) {
                     num++;
                 } else {
                     num += 2;
                 }
             }
-            System.out.println();
-            if (i % 2 == 1 && i < n) {
-                num+=1;
-            } else if (i % 2 == 0 && i < n) {
-                num -= n - 2;
+            if (i % 2 == 0 && i < n - 1) {
+                num++;
+            } else if (i % 2 != 0 && i < n - 1) {
+                num = map[i][n-1] + 1;
             }
+        }
+
+        // 맵 출력
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(map[i][j] + " ");
+            }
+            System.out.println();
         }
     }
 }
