@@ -9,8 +9,13 @@ public class Main {
             for (int j = b; j > 0; j--) {
                 if (j % 2 == 0) {
                     System.out.printf("%d * %d = %d", j, i, j * i);
-                    if(j <= b && j > a){
+                    if(a < 2){
+                        if(j <= b && j > 2)
                         System.out.print(" / ");
+                    }else{
+                        if(j <= b && j > a){
+                            System.out.print(" / ");
+                        }
                     }
                 }
             }
