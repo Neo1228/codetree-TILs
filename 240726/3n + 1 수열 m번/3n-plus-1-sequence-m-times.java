@@ -7,7 +7,7 @@ public class Main {
         int cnt = 0;
         for(int i = 1; i <= m; i++) {
             int n = sc.nextInt();
-            while (n > 1) {
+            while (n >= 1) {
                 if (n % 2 == 0) {
                     n = n / 2;
                     cnt++;
