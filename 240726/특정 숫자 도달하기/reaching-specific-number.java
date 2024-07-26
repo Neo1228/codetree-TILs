@@ -13,6 +13,8 @@ public class Main {
                 System.out.printf("%d %.1f", sum, (double)sum / i);
                 break;
             }
+            if(i == 9)
+            System.out.printf("%d %.1f", sum, (double)sum / (i + 1));
         }
     }
 }
