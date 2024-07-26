@@ -13,12 +13,14 @@ public class Main {
                     cnt++;
                     if (n == 1) {
                         System.out.print(cnt);
+                        cnt = 0;
                     }
                 } else {
                     n = n * 3 + 1;
                     cnt++;
                     if (n == 1) {
                         System.out.print(cnt);
+                        cnt = 0;
                     }
                 }
             }
