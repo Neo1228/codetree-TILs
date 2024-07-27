@@ -10,7 +10,7 @@ public class Main {
             arr[i] = sc.nextInt();
             if(i % 2 == 1){
                 sum += arr[i];
-            }else if (i % 3 == 0){
+            }else if ((i + 1) % 3 == 0){
                 sum2 += arr[i];
                 cnt++;
             }
