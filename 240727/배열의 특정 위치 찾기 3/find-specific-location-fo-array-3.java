@@ -13,7 +13,7 @@ public class Main {
                 cnt++;
             }
         }
-        for(int i = 0; i < cnt; i++){
+        for(int i = cnt; i > cnt - 4; i--){
             sum += arr[i];
         }
         System.out.println(sum);
