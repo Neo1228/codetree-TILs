@@ -16,7 +16,7 @@ public class Main {
                 cnt = i;
             }
         }
-        arr[cnt] = 0;
+        arr[cnt] = Integer.MIN_VALUE;
         System.out.print(maxVal + " ");
         int maxVal1 = arr[0];
         for(int i = 0; i < n; i++) {
