@@ -6,12 +6,10 @@ public class Main {
         int n = sc.nextInt();
         int cnt = 0;
         int[] arr = new int[n];
-        int[] count = new int[100];
+        int[] count = new int[Integer.MAX_VALUE];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = sc.nextInt();
         }
-        int max = Integer.MIN_VALUE;
-        int min = Integer.MAX_VALUE;
         int benefit = 0;
         for(int i = 0; i < arr.length; i++){
             for(int j = i + 1; j < arr.length; j++){
