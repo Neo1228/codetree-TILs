@@ -23,7 +23,7 @@ public class Main {
                     if (arr[j] == question[i]) {
                         cnt++;
                         System.out.println(j + 1);
-                        continue;
+                        break;
                     }
                 }
                 if(cnt < 1)
