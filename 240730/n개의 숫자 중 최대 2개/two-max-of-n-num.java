@@ -18,7 +18,7 @@ public class Main {
         System.out.print(maxVal + " ");
         int maxVal1 = arr[0];
         for(int i = 0; i < n; i++) {
-            if(arr[i] > maxVal1) {
+            if(arr[i] >= maxVal1) {
                 maxVal1 = arr[i];
             }
         }
