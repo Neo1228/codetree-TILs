@@ -11,11 +11,6 @@ public class Main {
             prices[i] = sc.nextInt();
         }
         
-        if (n == 0) {
-            System.out.println(0);
-            return;
-        }
-        
         int minPrice = prices[0];
         int maxProfit = 0;
         
