@@ -17,7 +17,7 @@ public class Main {
         for(int i = 0; i < cnt - 1; i++){
             if(arr[i] > maxVal){
                 maxVal = arr[i];
-            }else{
+            }else if(arr[i] < minVal){
                 minVal = arr[i];
             }
         }
