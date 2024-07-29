@@ -6,7 +6,6 @@ public class Main {
         int n = sc.nextInt();
         int q = sc.nextInt();
         int b = 0;
-        int cnt = 0;
         int[] arr = new int[n];
         int[] question = new int[q];
         for (int i = 0; i < n; i++) {
@@ -19,6 +18,7 @@ public class Main {
                 System.out.println(arr[question[i] - 1]);
             } else if (a == 2) {
                 question[i] = sc.nextInt();
+                int cnt = 0;
                 for (int j = 0; j < arr.length; j++) {
                     if (arr[j] == question[i]) {
                         cnt++;
