@@ -6,7 +6,7 @@ public class Main {
         int n = sc.nextInt();
         int cnt = 0;
         int[] arr = new int[n];
-        int[] count = new int[n];
+        int[] count = new int[100];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = sc.nextInt();
         }
@@ -26,10 +26,10 @@ public class Main {
             System.out.println(0);
         }
         int maxCount = 0;
-        for(int i = 0; i < arr.length; i++){
+        for(int i = 0; i < count.length; i++){
             if(count[i] >= 1){
                 maxCount = i;
-                for(int j = 0; j < arr.length; j++){
+                for(int j = 0; j < count.length; j++){
                     if (count[j] >= 1 && maxCount > i) {
                         maxCount = j;
                     }
