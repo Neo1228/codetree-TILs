@@ -9,11 +9,7 @@ public class Main {
         for(int i = 0; i < m; i++) {
             int r = sc.nextInt();
             int c = sc.nextInt();
-            if(i == 0){
-                arr[r - 1][c - 1] = 1;
-            }else{
-                arr[r - 1][c - 1] = (r) * (c);
-            }
+            arr[r - 1][c - 1] = (r) * (c);
         }
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
