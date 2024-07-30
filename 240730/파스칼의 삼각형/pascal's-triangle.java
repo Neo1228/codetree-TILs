@@ -6,9 +6,6 @@ public class Main {
         int n = sc.nextInt();
         int num = 1;
         int[][] arr = new int[n][n];
-        arr[0][0] = 1;
-        arr[1][0] = 1;
-        arr[1][1] = 1;
         for(int i = 0; i < n; i++) {
             arr[i][0] = 1;
         }
