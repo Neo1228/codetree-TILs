@@ -12,7 +12,7 @@ public class Main {
                 sum += arr[i][j];
                 sum1 += arr[i][j];
             }
-            System.out.print(sum/4 + " ");
+            System.out.printf("%.1f ", sum/4);
         }
         System.out.println();
         for (int i = 0; i < 4; i++) {
@@ -20,9 +20,9 @@ public class Main {
             for (int j = 0; j < 2; j++) {
                 sum2 += arr[j][i];
             }
-            System.out.print(sum2 / 2 + " ");
+            System.out.printf("%.1f ", sum2 / 2);
         }
         System.out.println();
-        System.out.print(sum1/8);
+        System.out.printf("%.1f", sum1/8);
     }
 }
