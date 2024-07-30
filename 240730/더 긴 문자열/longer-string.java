@@ -6,9 +6,11 @@ public class Main {
         String str = sc.next();
         String str2 = sc.next();
         if (str.length() > str2.length()) {
-            System.out.println(str);
-        } else {
-            System.out.println(str2);
+            System.out.println(str + " " + str.length());
+        } else if (str.length() == str2.length()){
+            System.out.println("same");
+        }else {
+            System.out.println(str2 + " " + str2.length());
         }
     }
 }
