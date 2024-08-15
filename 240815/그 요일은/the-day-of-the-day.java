@@ -11,7 +11,7 @@ public class Main {
         int[] month_of_days = new int[]{0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         String[] weeks = new String[]{"", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
         int elapsedWeek = 1;
-        int cnt = 0;
+        int cnt = 1;
         int idx = 0;
         for(int i = 0; i < weeks.length; i++){
             if(weeks[i].equals(day)){
@@ -26,15 +26,15 @@ public class Main {
             }
             d1++;
             elapsedWeek++;
+            if (elapsedWeek > 7) {
+                elapsedWeek = 1;
+            }
             if(elapsedWeek == idx){
                 cnt++;
             }
             if (d1 > month_of_days[m1]) {
-                d1 = 0;
+                d1 = 1;
                 m1++;
-            }
-            if (elapsedWeek == 7) {
-                elapsedWeek = 0;
             }
         }
         System.out.println(cnt);
