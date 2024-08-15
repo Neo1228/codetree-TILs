@@ -24,17 +24,17 @@ public class Main {
             if (m1 == m2 && d1 == d2) {
                 break;
             }
+            if(elapsedWeek == idx){
+                cnt++;
+            }
             d1++;
             elapsedWeek++;
             if (d1 > month_of_days[m1]) {
                 d1 = 1;
                 m1++;
             }
-            if(elapsedWeek == idx){
-                cnt++;
-            }
-            if (elapsedWeek == 7) {
-                elapsedWeek = 1;
+            if (elapsedWeek > 7) {
+                elapsedWeek = 0;
             }
         }
         System.out.println(cnt);
