@@ -11,14 +11,14 @@ public class Main {
         int[] binary = new int[MAX];
         int num = 0;
         while (true) {
-            if (N < 2) {
-                binary[num] = N;
+            if (N < b) {
+                binary[num++] = N;
                 break;
             }
             binary[num++] = N % b;
             N /= b;
         }
-        for(int i = num; i >= 0; i--){
+        for(int i = num - 1; i >= 0; i--){
             System.out.print(binary[i]);
         }
     }
