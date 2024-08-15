@@ -30,11 +30,11 @@ public class Main {
                 cnt++;
             }
             if (d1 > month_of_days[m1]) {
-                d1 = 1;
+                d1 = 0;
                 m1++;
             }
-            if (elapsedWeek >= 7) {
-                elapsedWeek = 1;
+            if (elapsedWeek == 7) {
+                elapsedWeek = 0;
             }
         }
         System.out.println(cnt);
