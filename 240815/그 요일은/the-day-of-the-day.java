@@ -33,8 +33,8 @@ public class Main {
                 d1 = 1;
                 m1++;
             }
-            if (elapsedWeek > 7) {
-                elapsedWeek = 0;
+            if (elapsedWeek >= 7) {
+                elapsedWeek = 1;
             }
         }
         System.out.println(cnt);
