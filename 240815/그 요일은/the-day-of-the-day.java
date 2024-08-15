@@ -8,11 +8,12 @@ public class Main {
         int m2 = sc.nextInt();
         int d2 = sc.nextInt();
         String day = sc.next();
-        int[] month_of_days = new int[]{0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        int[] month_of_days = new int[]{0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         String[] weeks = new String[]{"", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
         int elapsedWeek = 1;
-        int cnt = 1;
+        int cnt = 0;
         int idx = 0;
+
         for(int i = 0; i < weeks.length; i++){
             if(weeks[i].equals(day)){
                 idx = i;
@@ -29,12 +30,12 @@ public class Main {
             if (elapsedWeek > 7) {
                 elapsedWeek = 1;
             }
-            if(elapsedWeek == idx){
-                cnt++;
-            }
             if (d1 > month_of_days[m1]) {
                 d1 = 1;
                 m1++;
+            }
+            if(elapsedWeek == idx){
+                cnt++;
             }
         }
         System.out.println(cnt);
