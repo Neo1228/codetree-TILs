@@ -23,7 +23,7 @@ public class Main {
             }
         }
         int max = arr[0];
-        for(int i = 0; i < n + 1; i++){
+        for(int i = 0; i < 300; i++){
             if(max < arr[i]){
                 max = arr[i];
             }
