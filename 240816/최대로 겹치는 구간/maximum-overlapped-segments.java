@@ -11,7 +11,7 @@ public class Main {
             if(a < 0){
                 a += 100;
             }else if(a > 0){
-                a += 100
+                a += 100;
             }
             if(b < 0){
                 b += 100;
