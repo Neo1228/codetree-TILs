@@ -16,25 +16,21 @@ public class Main {
             String where = sc.next();
             if (where.equals("R")) {
                 for (int j = start; j < start + how; j++) {
-                    if (j >= 0 && j < MAX) {
-                        arr[j] = "B";
-                        arrBlack[j]++;
-                    }
+                    arr[j] = "B";
+                    arrBlack[j]++;
                 }
-                start += how;
+                start += how - 1;
             } else if (where.equals("L")) {
-                for (int j = start; j > start - how; j--) {
-                    if (j >= 0 && j < MAX) {
-                        arr[j] = "W";
-                        arrWhite[j]++;
-                    }
+                for (int j = start; j >= start - how + 1; j--) {
+                    arr[j] = "W";
+                    arrWhite[j]++;
                 }
-                start -= how;
+                start -= how - 1;
             }
         }
 
-        for (int i = 0; i < MAX; i++) {
-            if (arrWhite[i] >= 2 && arrBlack[i] >= 2) {
+        for(int i = 0; i < MAX; i++) {
+            if(arrWhite[i] >= 2 && arrBlack[i] >= 2) {
                 arr[i] = "G";
             }
         }
@@ -43,18 +39,18 @@ public class Main {
         int cntB = 0;
         int cntW = 0;
 
-        for (int i = 0; i < MAX; i++) {
-            if (arr[i] != null) {
-                if (arr[i].equals("G")) {
+        for(int i = 0; i < MAX; i++) {
+            if(arr[i] != null){
+                if(arr[i].equals("G")) {
                     cntG++;
-                } else if (arr[i].equals("W")) {
+                }else if(arr[i].equals("W")) {
                     cntW++;
-                } else if (arr[i].equals("B")) {
+                }else if(arr[i].equals("B")){
                     cntB++;
                 }
             }
         }
-
         System.out.print(cntW + " " + cntB + " " + cntG);
+
     }
 }
