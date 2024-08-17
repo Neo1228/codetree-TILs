@@ -1,38 +1,56 @@
 import java.util.Scanner;
 
 public class Main {
-    static final int MAX = 2001;  // 충분한 범위 설정
+    static final int MAX = 10000;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] arr = new int[MAX];
-        int pos = 1000;  // 중간 위치에서 시작
+        int start = 5000; // 중심을 기준으로 시작
 
+        // 명령어를 처리하여 위치 배열 업데이트
         for (int i = 0; i < n; i++) {
-            int x = sc.nextInt();
-            String direction = sc.next();
-            
-            if (direction.equals("R")) {
-                for (int j = pos; j < pos + x; j++) {
+            int how = sc.nextInt();
+            String where = sc.next();
+            if (where.equals("R")) {
+                for (int j = start; j < start + how; j++) { // R: start부터 시작
                     arr[j]++;
                 }
-                pos += x;
-            } else {  // "L"
-                for (int j = pos - 1; j >= pos - x; j--) {
+                start += how;
+            } else if (where.equals("L")) {
+                for (int j = start - 1; j >= start - how; j--) { // L: start부터 시작
                     arr[j]++;
                 }
-                pos -= x;
+                start -= how;
             }
         }
 
-        int count = 0;
+        int cnt = 0;
+        int segmentLength = 0;
+        boolean inSegment = false;
+
+        // 2번 이상 지나간 연속된 영역의 크기를 계산
         for (int i = 0; i < MAX; i++) {
             if (arr[i] >= 2) {
-                count++;
+                if (!inSegment) {
+                    inSegment = true;  // 새로운 연속 구간 시작
+                }
+                segmentLength++;  // 구간의 길이 증가
+            } else {
+                if (inSegment) {
+                    cnt += segmentLength;  // 현재까지의 연속 구간 길이 추가
+                    segmentLength = 0;  // 구간 길이 초기화
+                    inSegment = false;  // 구간 종료
+                }
             }
         }
 
-        System.out.println(count);
+        // 마지막으로 세그먼트가 끝나지 않은 경우 처리
+        if (inSegment) {
+            cnt += segmentLength;
+        }
+
+        System.out.println(cnt); // 결과 출력
     }
 }
