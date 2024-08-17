@@ -1,40 +1,38 @@
 import java.util.Scanner;
 
 public class Main {
-    static final int MAX = 20001;  // 범위를 더 넓게 설정
+    static final int MAX = 2001;  // 충분한 범위 설정
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] arr = new int[MAX];
-        int start = 10000;  // 중심을 기준으로 시작
+        int pos = 1000;  // 중간 위치에서 시작
 
-        // 명령어를 처리하여 위치 배열 업데이트
         for (int i = 0; i < n; i++) {
-            int how = sc.nextInt();
-            String where = sc.next();
-            if (where.equals("R")) {
-                for (int j = start + 1; j <= start + how; j++) {  // R: start+1부터 시작
+            int x = sc.nextInt();
+            String direction = sc.next();
+            
+            if (direction.equals("R")) {
+                for (int j = pos; j < pos + x; j++) {
                     arr[j]++;
                 }
-                start += how;
-            } else if (where.equals("L")) {
-                for (int j = start - 1; j >= start - how; j--) {  // L: start-1부터 시작
+                pos += x;
+            } else {  // "L"
+                for (int j = pos - 1; j >= pos - x; j--) {
                     arr[j]++;
                 }
-                start -= how;
+                pos -= x;
             }
         }
 
-        int cnt = 0;
-
-        // 2번 이상 지나간 영역의 크기를 계산
+        int count = 0;
         for (int i = 0; i < MAX; i++) {
             if (arr[i] >= 2) {
-                cnt++;
+                count++;
             }
         }
 
-        System.out.println(cnt);  // 결과 출력
+        System.out.println(count);
     }
 }
