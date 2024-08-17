@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    static final int MAX = 10000;
+    static final int MAX = 100000;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -9,7 +9,7 @@ public class Main {
         String[] arr = new String[MAX];
         int[] arrWhite = new int[MAX];
         int[] arrBlack = new int[MAX];
-        int start = 5000;
+        int start = 50000;
 
         for (int i = 0; i < n; i++) {
             int how = sc.nextInt();
