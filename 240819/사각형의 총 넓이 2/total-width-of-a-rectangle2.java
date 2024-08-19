@@ -8,9 +8,13 @@ public class Main {
         int[][] arr = new int[MAX][MAX];
         for (int i = 0; i < N; i++){
             int row1 = sc.nextInt();
+            row1 += 100;
             int col1 = sc.nextInt();
+            col1 += 100;
             int row2 = sc.nextInt();
+            row2 += 100;
             int col2 = sc.nextInt();
+            col2 += 100;
             for(int j = row1; j < row2; j++){
                 for (int k = col1; k < col2; k++){
                     arr[j][k] = 1;
