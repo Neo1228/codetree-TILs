@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    public static int MAX = 20000;
+    public static int MAX = 5000;
     public static int HALF = MAX / 2;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
