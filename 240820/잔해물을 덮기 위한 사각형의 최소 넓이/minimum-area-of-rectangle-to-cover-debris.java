@@ -24,10 +24,10 @@ public class Main {
         int overlapY2 = Math.min(y2_1, y2_2);
 
         // 겹치지 않는 부분을 덮는 최소 사각형의 범위 계산
-        int remainingX1 = Math.min(x1_1, overlapX1);
-        int remainingY1 = Math.min(y1_1, overlapY1);
-        int remainingX2 = Math.max(x2_1, overlapX2);
-        int remainingY2 = Math.max(y2_1, overlapY2);
+        int remainingX1 = Math.min(x1_1, overlapX1) + 1000;
+        int remainingY1 = Math.min(y1_1, overlapY1) + 1000;
+        int remainingX2 = Math.max(x2_1, overlapX2) + 1000;
+        int remainingY2 = Math.max(y2_1, overlapY2) + 1000;
 
         // 최소 직사각형의 넓이 계산
         int width = remainingX2 - remainingX1;
