@@ -1,68 +1,82 @@
 import java.util.Scanner;
+import java.util.Arrays;
+
+// 악수의 정보를 나타내는 클래스 선언
+class Shake implements Comparable<Shake> {
+    int time;
+    int person1;
+    int person2;
+
+    public Shake(int time, int person1, int person2) {
+        this.time = time;
+        this.person1 = person1;
+        this.person2 = person2;
+    }
+
+    @Override
+    public int compareTo(Shake shake) {
+        // 시간을 기준으로 오름차순으로 정렬합니다.
+        return time - shake.time;
+    }
+};
 
 public class Main {
+    public static final int MAX_T = 250;
+    public static final int MAX_N = 100;
+
+    public static int n, k, p, t;
+    public static int[] shakeNum = new int[MAX_N + 1];
+    public static boolean[] infected = new boolean[MAX_N + 1];
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int k = sc.nextInt();
-        int p = sc.nextInt();
-        int T = sc.nextInt();
-        int[] infected = new int[n + 1]; // 이때 n+1은 n명을 처리하기 위한 배열
-        int[] time = new int[T];
-        int[] infectedX = new int[T];
-        int[] infectedY = new int[T];
-        infected[p] = 1; // 최초 감염자 설정
+        // 입력
+        n = sc.nextInt();
+        k = sc.nextInt();
+        p = sc.nextInt();
+        t = sc.nextInt();
+        infected[p] = true;
 
-        // 입력받은 값을 배열에 저장
-        for (int i = 0; i < T; i++) {
-            int t = sc.nextInt();
-            int x = sc.nextInt();
-            int y = sc.nextInt();
-            time[i] = t;
-            infectedX[i] = x;
-            infectedY[i] = y;
+        Shake[] shakes = new Shake[MAX_T];
+
+        for(int i = 0; i < t; i++) {
+            int time = sc.nextInt();
+            int person1 = sc.nextInt();
+            int person2 = sc.nextInt();
+            // Shake 객체를 생성해 넣어줍니다.
+            shakes[i] = new Shake(time, person1, person2);
         }
 
-        // 시간에 따른 이벤트 정렬
-        for(int i = 0; i < T; i++){
-            int minIndex = i;
-            for(int j = i + 1; j < T; j++){
-                if(time[j] < time[minIndex]){
-                    minIndex = j;
-                }
-            }
-            // 시간, 감염자 X, Y의 순서를 함께 교환
-            int temp = time[minIndex];
-            int temp1 = infectedX[minIndex];
-            int temp2 = infectedY[minIndex];
-            time[minIndex] = time[i];
-            infectedX[minIndex] = infectedX[i];
-            infectedY[minIndex] = infectedY[i];
-            time[i] = temp;
-            infectedX[i] = temp1;
-            infectedY[i] = temp2;
+        // custom comparator를 활용한 정렬
+        Arrays.sort(shakes, 0, t);
+
+        // 각 악수 횟수를 세서,
+        // K번 초과로 악수를 했을 시 전염시키지 않습니다.
+        for(int i = 0; i < t; i++) {
+            int target1 = shakes[i].person1;
+            int target2 = shakes[i].person2;
+
+            // 감염되어 있을 경우 악수 횟수를 증가시킵니다.
+            if(infected[target1])
+                shakeNum[target1]++;
+            if(infected[target2])
+                shakeNum[target2]++;
+
+            // target1이 감염되어 있고 아직 K번 이하로 악수했다면 target2를 전염시킵니다.
+            if(shakeNum[target1] <= k && infected[target1])
+                infected[target2] = true;
+
+            // target2가 감염되어 있고 아직 K번 이하로 악수했다면 target1을 전염시킵니다.
+            if(shakeNum[target2] <= k && infected[target2])
+                infected[target1] = true;
         }
 
-        // 감염 확산 처리
-        int times = 0;
-        for (int i = 0; i < T; i++) {
-            if (i == 0 || time[i] - time[i - 1] < k) {
-                if(infected[infectedX[i]] == 1){
-                    infected[infectedY[i]] = 1;
-                    times++;
-                } else if (infected[infectedY[i]] == 0) {
-                    infected[infectedX[i]] = 1;
-                    times++;
-                }
-            }
-            if(times >= k){
-                break;
-            }
-        }
-
-        // 결과 출력
         for(int i = 1; i <= n; i++) {
-            System.out.print(infected[i]);
+            if(infected[i])
+                System.out.print(1);
+            else
+                System.out.print(0);
         }
+
     }
 }
