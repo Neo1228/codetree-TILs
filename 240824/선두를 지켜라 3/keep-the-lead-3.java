@@ -7,8 +7,8 @@ public class Main {
         int n = sc.nextInt(); // A의 구간 수
         int m = sc.nextInt(); // B의 구간 수
         
-        int[] aDistances = new int[100000]; // A의 이동 거리 저장
-        int[] bDistances = new int[100000]; // B의 이동 거리 저장
+        int[] aDistances = new int[1000000]; // A의 이동 거리 저장
+        int[] bDistances = new int[1000000]; // B의 이동 거리 저장
         
         int time1 = 1;
         for (int i = 0; i < n; i++) {
