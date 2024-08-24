@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,9 +9,10 @@ public class Main {
         int p = sc.nextInt();
         int T = sc.nextInt();
         int[] infected = new int[n + 1];
-        int[] infectionCount = new int[n + 1];
+        int[] infectionTime = new int[n + 1];
         int[][] shakes = new int[T][3];
         infected[p] = 1;
+        infectionTime[p] = 0;
 
         for (int i = 0; i < T; i++) {
             shakes[i][0] = sc.nextInt(); // time
@@ -19,28 +21,25 @@ public class Main {
         }
 
         // 시간에 따른 이벤트 정렬
-        for (int i = 0; i < T - 1; i++) {
-            for (int j = 0; j < T - i - 1; j++) {
-                if (shakes[j][0] > shakes[j + 1][0]) {
-                    int[] temp = shakes[j];
-                    shakes[j] = shakes[j + 1];
-                    shakes[j + 1] = temp;
-                }
-            }
-        }
+        Arrays.sort(shakes, (a, b) -> Integer.compare(a[0], b[0]));
 
         // 감염 확산 처리
         for (int i = 0; i < T; i++) {
+            int t = shakes[i][0];
             int x = shakes[i][1];
             int y = shakes[i][2];
             
-            if (infected[x] == 1 && infectionCount[x] < k) {
-                infected[y] = 1;
-                infectionCount[x]++;
+            if (infected[x] == 1 && t - infectionTime[x] <= k) {
+                if (infected[y] == 0) {
+                    infected[y] = 1;
+                    infectionTime[y] = t;
+                }
             }
-            if (infected[y] == 1 && infectionCount[y] < k) {
-                infected[x] = 1;
-                infectionCount[y]++;
+            if (infected[y] == 1 && t - infectionTime[y] <= k) {
+                if (infected[x] == 0) {
+                    infected[x] = 1;
+                    infectionTime[x] = t;
+                }
             }
         }
 
