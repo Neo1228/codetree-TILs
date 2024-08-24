@@ -1,51 +1,48 @@
 import java.util.Scanner;
 
 public class Main {
-    public static int MAX = 1000000;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
-        int[] arr = new int[MAX];
-        int[] arr1 = new int[MAX];
+        
+        int[] arr = new int[100000];
+        int[] arr1 = new int[100000];
+        
         int time1 = 1;
         for (int i = 0; i < n; i++) {
             int v = sc.nextInt();
             int t = sc.nextInt();
-            while (t-- > 0) {
+            for (int j = 0; j < t; j++) {
                 arr[time1] = arr[time1 - 1] + v;
                 time1++;
             }
         }
+        
         int time2 = 1;
         for (int i = 0; i < m; i++) {
             int v = sc.nextInt();
             int t = sc.nextInt();
-            while (t-- > 0) {
+            for (int j = 0; j < t; j++) {
                 arr1[time2] = arr1[time2 - 1] + v;
                 time2++;
             }
         }
+        
         int cnt = 0;
-        int index = 1;
-        for (int i = index; i < MAX; i++) {
-            if(arr[i] == arr1[i] && arr[i] != 0 && arr1[i] != 0) {
-                cnt++;
-            }
-            if (arr[index] > arr1[index]) {
-                if (arr[i] < arr1[i]) {
+        boolean isCrossing = false;
+        
+        for (int i = 1; i < Math.min(time1, time2); i++) {
+            if (arr[i] == arr1[i]) {
+                if (!isCrossing) {
                     cnt++;
-                    index = i;
-                }
-            } else if (arr[index] < arr1[index]) {
-                if (arr[i] > arr1[i]) {
-                    cnt++;
-                    index = i;
+                    isCrossing = true;
                 }
             } else {
-                cnt = 1;
+                isCrossing = false;
             }
         }
+        
         System.out.println(cnt);
     }
 }
