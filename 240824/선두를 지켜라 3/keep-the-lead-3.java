@@ -29,6 +29,9 @@ public class Main {
         int cnt = 0;
         int index = 1;
         for (int i = index; i < MAX; i++) {
+            if(arr[i] == arr1[i] && arr[i] != 0 && arr1[i] != 0) {
+                cnt++;
+            }
             if (arr[index] > arr1[index]) {
                 if (arr[i] < arr1[i]) {
                     cnt++;
@@ -39,7 +42,7 @@ public class Main {
                     cnt++;
                     index = i;
                 }
-            }else {
+            } else {
                 cnt = 1;
             }
         }
