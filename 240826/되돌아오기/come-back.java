@@ -26,15 +26,16 @@ public class Main {
             char c = sc.next().charAt(0);
             int dis = sc.nextInt();
             a = getInt(c);
-            for (int j = 0; j < dis; j++){
+            for (int j = 0; j < dis; j++) {
                 cnt++;
                 x += dx[a];
                 y += dy[a];
-                if(x == 0 && y == 0){
+                if (x == 0 && y == 0) {
                     System.out.println(cnt);
                     return;
                 }
             }
         }
+        System.out.println(-1);
     }
 }
