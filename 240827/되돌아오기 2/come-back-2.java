@@ -27,5 +27,8 @@ public class Main {
                 }
             }
         }
+        if(cnt > 0) {
+            System.out.println(-1);
+        }
     }
 }
