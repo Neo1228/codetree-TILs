@@ -12,7 +12,7 @@ public class Main {
 
     public static boolean isComfortable(int a, int b){
         int cnt = 0;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < 4; i++) {
             int newX = dx[i] + a, newY = dy[i] + b;
             if(isRange(newX, newY) && map[newX][newY] == 1) {
                 cnt++;
