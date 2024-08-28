@@ -1,71 +1,81 @@
 import java.util.Scanner;
 
 public class Main {
+    public static final int DIR_NUM = 4;
+    public static final int MAX_N = 1000;
+    
     public static int n;
-    public static int[] dx = {0, 1, 0, -1}; // 동, 남, 서, 북
-    public static int[] dy = {1, 0, -1, 0}; // 동, 남, 서, 북
-    public static char[][] map;
-
-    // 격자 내에 있는지 확인하는 함수
-    public static boolean isWithinBounds(int x, int y) {
-        return x >= 0 && x < n && y >= 0 && y < n;
-    }
-
-    // 레이저 반사 횟수를 계산하는 함수
-    public static int getReflectionCount(int x, int y, int dir) {
-        int count = 0;
-
-        while (true) {
-            x += dx[dir];
-            y += dy[dir];
-
-            if (!isWithinBounds(x, y)) {
-                break;
-            }
-
-            if (map[x][y] == '/') {
-                dir = (dir + 3) % 4;  // 시계 반대 방향으로 회전
-            } else if (map[x][y] == '\\') {
-                dir = (dir + 1) % 4;  // 시계 방향으로 회전
-            }
-
-            count++;
+    public static char[][] arr = new char[MAX_N][MAX_N];
+    
+    public static int startNum;
+    public static int x, y, moveDir;
+    
+    // 주어진 숫자에 따라
+    // 시작 위치와 방향을 구합니다.
+    public static void initialize(int num) {
+        if(num <= n) {
+            x = 0; y = num - 1; moveDir = 0;
         }
-        return count;
+        else if(num <= 2 * n) {
+            x = num - n - 1; y = n - 1; moveDir = 1;
+        }
+        else if(num <= 3 * n) {
+            x = n - 1; y = n - (num - 2 * n); moveDir = 2;
+        }
+        else {
+            x = n - (num - 3 * n); y = 0; moveDir = 3;
+        }
+    }
+    
+    public static boolean inRange(int x, int y) {
+        return 0 <= x && x < n && 0 <= y && y < n;
+    }
+    
+    // (x, y)에서 시작하여 nextDir 방향으로
+    // 이동한 이후의 위치를 구합니다.
+    public static void move(int nextDir) {
+        int[] dx = new int[]{1,  0, -1, 0};
+        int[] dy = new int[]{0, -1,  0, 1};
+        
+        x += dx[nextDir];
+        y += dy[nextDir];
+        moveDir = nextDir;
+    }
+    
+    public static int simulate() {
+        int moveNum = 0;
+        while(inRange(x, y)) {
+            // 0 <-> 1 / 2 <-> 3
+            if(arr[x][y] == '/')
+                move(moveDir ^ 1);
+            // 0 <-> 3 / 1 <-> 2
+            else
+                move(3 - moveDir);
+            
+            moveNum += 1;
+        }
+        
+        return moveNum;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        // 입력
         n = sc.nextInt();
-        map = new char[n][n];
-
-        for (int i = 0; i < n; i++) {
-            map[i] = sc.next().toCharArray();
+        for(int i = 0; i < n; i++) {
+            String input = sc.next();
+            for(int j = 0; j < n; j++)
+                arr[i][j] = input.charAt(j);
         }
-
-        int razor = sc.nextInt();
-        int startX = 0, startY = 0, dir = 0;
-
-        // 레이저의 시작 위치 및 방향 설정
-        if (razor <= n) {
-            startX = 0;
-            startY = razor - 1;
-            dir = 1;  // 아래로
-        } else if (razor <= 2 * n) {
-            startX = razor - n - 1;
-            startY = n - 1;
-            dir = 2;  // 왼쪽으로
-        } else if (razor <= 3 * n) {
-            startX = n - 1;
-            startY = 3 * n - razor;
-            dir = 3;  // 위로
-        } else {
-            startX = 4 * n - razor;
-            startY = 0;
-            dir = 0;  // 오른쪽으로
-        }
-
-        int result = getReflectionCount(startX, startY, dir);
-        System.out.println(result);
+        
+        startNum = sc.nextInt();
+ 
+        // 시작 위치와 방향을 구합니다.
+        initialize(startNum);
+        // (x, y)에서 moveDir 방향으로 시작하여
+        // 시뮬레이션을 진행합니다.
+        int moveNum = simulate();
+        
+        System.out.print(moveNum);
     }
 }
