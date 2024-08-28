@@ -23,10 +23,10 @@ public class Main {
                 break;
             }
 
-            if(map[x][y] =='/'){
-                dir = (dir == 0) ? 3 : (dir == 1) ? 2 : (dir == 2) ? 1 : 0;
-            }else if (map[x][y] == '\\') {
-                dir = (dir == 0) ? 1 : (dir == 1) ? 0 : (dir == 2) ? 3 : 2;
+            if (map[x][y] == '/') {
+                dir = (dir + 3) % 4;  // 시계 반대 방향으로 회전
+            } else if (map[x][y] == '\\') {
+                dir = (dir + 1) % 4;  // 시계 방향으로 회전
             }
 
             count++;
