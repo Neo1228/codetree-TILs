@@ -28,7 +28,7 @@ public class Main {
             start++;
             map[x][y] = (char) start;
             if(start == 90){
-                start = 65;
+                start = 64;
             }
         }
         for(int i = 0; i < n; i++){
