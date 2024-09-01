@@ -23,6 +23,11 @@ public class Main {
                 break;
             }
         }
+        
+        if(a == 1){
+            System.out.println(0);
+            return;
+        }
 
         int num = count - 1;
         int sum = 0;
