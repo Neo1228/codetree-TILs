@@ -37,10 +37,10 @@ public class Main {
             if(N[num] == 1){
                 sum += (int) Math.pow(2, num);
             }
-            num--;
             if (num == 0) {
                 break;
             }
+            num--;
         }
         System.out.println(sum);
     }
