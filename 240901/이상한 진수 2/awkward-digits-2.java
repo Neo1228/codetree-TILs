@@ -4,6 +4,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
+        if(a == 1){
+            System.out.println(0);
+            return;
+        }
         int t = 0;
         int count = 0;
         int[] N = new int[100];
@@ -23,11 +27,7 @@ public class Main {
                 break;
             }
         }
-        
-        if(a == 1){
-            System.out.println(0);
-            return;
-        }
+
 
         int num = count - 1;
         int sum = 0;
