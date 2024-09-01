@@ -25,6 +25,8 @@ public class Main {
             if(N[i] == 0){
                 N[i] = 1;
                 break;
+            }else if (i == 0){
+                N[i] = 0;
             }
         }
 
