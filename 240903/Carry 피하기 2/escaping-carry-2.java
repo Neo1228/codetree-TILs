@@ -38,17 +38,22 @@ public class Main {
         for (int i = 0; i < n; i++){
             arr[i] = sc.nextInt();
         }
-        int sum = 0;
+        int cnt = 0;
         int max = 0;
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
                 for (int k = j + 1; k < n; k++) {
                     if(isCarry(arr[i], arr[j], arr[k])) {
                         max = Math.max(max, arr[i] + arr[j] + arr[k]);
+                        cnt++;
                     }
                 }
             }
         }
-        System.out.println(max);
+        if(cnt == 0){
+            System.out.println(-1);
+        }else {
+            System.out.println(max);
+        }
     }
 }
