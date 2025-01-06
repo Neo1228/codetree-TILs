@@ -1,23 +1,30 @@
 import java.util.*;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         ArrayList<Integer> ar = new ArrayList<>();
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+        int n = Integer.parseInt(st.nextToken());
+
         for (int i = 0; i < n; i++) {
-            String s = sc.next();
+            st = new StringTokenizer(br.readLine());
+            String s = st.nextToken();
             if (s.equals("push_back")) {
-                int a = sc.nextInt();
+                int a = Integer.parseInt(st.nextToken());
                 ar.add(a);
             } else if (s.equals("pop_back")) {
                 ar.remove(ar.size() - 1);
             } else if (s.equals("size")) {
-                System.out.println(ar.size());
+                bw.write(ar.size() + "\n");
             } else if (s.equals("get")) {
-                int a = sc.nextInt();
-                System.out.println(ar.get(a - 1));
+                int a = Integer.parseInt(st.nextToken());
+                bw.write(String.valueOf(ar.get(a - 1)) + "\n");
             }
         }
+        bw.flush();
+        bw.close();
     }
 }
