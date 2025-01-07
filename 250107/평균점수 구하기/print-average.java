@@ -9,7 +9,7 @@ public class Main {
     for(int i =0;i<8;i++){
       arr[i] = sc.nextDouble();
     }
-    float sum =0;
+    double sum =0;
     for(int i =0;i<8;i++){
       sum+=arr[i];
     }
