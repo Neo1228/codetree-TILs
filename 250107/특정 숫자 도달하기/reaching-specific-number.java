@@ -11,7 +11,7 @@ public class Main {
     int sum = 0;
     int count = 0;
     for (int i = 0; i < a.length; i++) {
-      if (a[i] == 260) {
+      if (a[i] >= 250) {
         break;
       }
       sum += a[i];
