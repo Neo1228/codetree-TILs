@@ -18,7 +18,7 @@ public class Main {
     private static int[] merge(int[] arr, int low, int mid, int high) {
         int i = low, j = mid + 1, k = low;
 
-        while(i <= mid && k <= high) {
+        while(i <= mid && j <= high) {
             if(arr[i] <= arr[j]) {
                 merge_arr[k] = arr[i];
                 k++;
